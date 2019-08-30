@@ -1,0 +1,25 @@
+機械学習ライブラリのドキュメント
+
+bool get_first_weight(std::string file_name);
+でファイル名を指定して重みとバイアスを取得する
+
+bool random_first_weight(std::vector<int> layer, std::vector<std::string> act, std::string file_name);
+最初の重みとバイアスを乱数で生成する。第一引数に各層の数、第二引数に各層で使う活性化関数、第三引数で重みとバイアスを書き込むファイル名を指定する。
+
+std::vector<long double> predict(std::vector<long double> data, bool show);
+でニューラルネットワークの順伝播の計算をする。第一引数に入力層に対応した数値を入れた配列、第二引数に予測結果を表示するかしないか。
+
+bool write_data(std::string file_name);
+現在設定している重みとバイアスを書き込む
+
+現在使用できる活性化関数は
+sigmoid,softmax,softsignの３つ
+追加したい場合はactivation関数を参考に追加してください。
+
+重みやバイアスのファイル形式
+最初に入力層を除いた層の数
+重みから記載
+その層で使う重みの２次元配列の縦、横を書いた後に重みを書く
+重みを書き終わったらバイアスを書く
+バイアスの数を書いた後に重みを記載
+バイアスを書き終わったら各層で使う活性化関数の記載
